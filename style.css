@@ -12,7 +12,7 @@
     --first-color: rgb(110, 87, 224);
     --first-color-hover: rgb(40, 91, 212);
 
-    --second-color: rgb(222, 66, 22);
+    --second-color: rgb(16, 137, 230);
     --third-color: rgb(192, 166, 49);
     --first-shadow-color: rgba(0, 0, 0, 0.1);
 }
@@ -84,6 +84,7 @@ nav{
     height: 90px;
     line-height: 90px;
     padding-inline: 9vw;
+    background: var(--body-color);
     transition: .3s;
     z-index: 100;
 }
@@ -122,6 +123,40 @@ nav{
     display: none;
 }
 
-.nav-menu-btn{
+.nav-menu-btn i{
+    font-size: 28px;
+    cursor: pointer;
+}
 
+/*---------- MEDIA QUERY == 900px / RESPONSIVE ----------*/
+@media only screen and (max-width: 900px) {
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        left: 0;
+    }
+    .nav-menu{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 450px;
+        height: 90vh;
+        transition: .3s;
+    }
+    .nav_menu_list{
+        flex-direction: column;
+    }
+    .nav-menu-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
 }
