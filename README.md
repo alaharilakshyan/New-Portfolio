@@ -38,7 +38,7 @@ Welcome to my **Portfolio Website** repository! This project showcases my skills
 
 ## Preview
 
-![Website Preview](assets/images/preview.png)
+![Website Preview](assets/preview.png)
 
 ## Connect with Me
 
