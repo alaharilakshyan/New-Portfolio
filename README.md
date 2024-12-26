@@ -36,9 +36,7 @@ Welcome to my **Portfolio Website** repository! This project showcases my skills
    ```
 3. Open `Index.html` in your browser to view the website locally.
 
-## Preview
 
-![Website Preview](assets/preview.png)
 
 ## Connect with Me
 
