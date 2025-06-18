@@ -615,6 +615,20 @@
             justify-content: center;
             color: white;
             font-size: 1.8rem;
+            overflow: hidden; /* Added for logo */
+        }
+
+        /* Logo styling for InternsElite */
+        .company-logo.logo-image {
+            background: white;
+            padding: 5px;
+        }
+        
+        .company-logo.logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
         }
 
         .company-info h3 {
@@ -1093,8 +1107,11 @@
                 </div>
                 <div class="home-image">
                     <div class="profile-image-container">
-                        <img src="Assets/L.jpg" 
-                             alt="Lakshyan Alahari" class="profile-image">
+                        <!-- Placeholder for profile image -->
+                         <img src="Assets/L2.jpg" alt="Logo">
+                        <div style="width:100%;height:100%;background:linear-gradient(45deg, #3d76ca, #00c9ff);display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;text-align:center;">
+                            Profile Image
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1110,7 +1127,11 @@
         <div class="container">
             <div class="about-container">
                 <div class="about-image">
-                    <img src="Assets/IMG_0116.jpg" alt="About Me">
+                    <!-- Placeholder for about image -->
+                     <img src="Assets/IMG_0116.jpg" alt="Lakshyan">
+                    <div style="width:100%;height:100%;background:linear-gradient(45deg, #1e9fab, #5a43c7);display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;text-align:center;border-radius:20px;">
+                        About Me Image
+                    </div>
                 </div>
                 <div class="about-text">
                     <h2>About Me</h2>
@@ -1128,13 +1149,13 @@
                         </div>
                         <div class="stat-box">
                             <i class="fas fa-check-circle"></i>
-                            <div class="number">15+</div>
+                            <div class="number">5+</div>
                             <div class="label">Projects Completed</div>
                         </div>
                         <div class="stat-box">
-                            <i class="fas fa-users"></i>
-                            <div class="number">8+</div>
-                            <div class="label">Happy Clients</div>
+                            <i class="fas fa-certificate"></i>
+                            <div class="number">3+</div>
+                            <div class="label">Certifications</div>
                         </div>
                     </div>
                 </div>
@@ -1184,24 +1205,22 @@
                 <div class="academic-timeline">
                     <h3><i class="fas fa-graduation-cap"></i> Academic Journey</h3>
                     <div class="timeline-item">
-                        <div class="timeline-date">2016 - 2017</div>
-                        <h4 class="timeline-title">High School</h4>
-                        <p class="timeline-description">Completed high school with focus on science and mathematics. Developed foundational problem-solving skills.</p>
+                        <h4 class="timeline-title">Narayana High School</h4>
+                        <div class="timeline-date">Apr'2020 - Jun'2021</div>
+                        <p class="timeline-description">Nellore, Andhra Pradesh.</p>
+                        <p><strong>CGPA:</strong> 10.0</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2017 - 2019</div>
-                        <h4 class="timeline-title">Intermediate Education</h4>
-                        <p class="timeline-description">Specialized in Mathematics, Physics, and Chemistry. Developed analytical thinking and scientific approach.</p>
+                        <h4 class="timeline-title">Narayana Intermediate College</h4>
+                        <div class="timeline-date">Apr'2021 - Mar'2023</div>
+                        <p class="timeline-description">Nellore, Andhra Pradesh.</p>
+                        <p><strong>Percentage:</strong> 67.2%</p>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-date">2019 - 2023</div>
-                        <h4 class="timeline-title">Bachelor of Technology</h4>
-                        <p class="timeline-description">Pursued Computer Science Engineering at a reputed university. Focused on algorithms, data structures, and web technologies.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 - Present</div>
-                        <h4 class="timeline-title">Professional Development</h4>
-                        <p class="timeline-description">Working as a frontend developer while continuously learning new frameworks and design patterns.</p>
+                        <h4 class="timeline-title">Lovely Professional University</h4>
+                        <div class="timeline-date">Aug'2023 - 2027</div>
+                        <p class="timeline-description">B.Tech Computer Science of Engineering.</p>
+                        <p><strong>CGPA:</strong> 5.0</p>
                     </div>
                 </div>
             </div>
@@ -1218,23 +1237,25 @@
             <div class="work-timeline">
                 <div class="work-card">
                     <div class="company-header">
-                        <div class="company-logo">
-                            <i class="fas fa-building"></i>
+                        <div class="company-logo logo-image">
+                            <!-- Fixed logo styling -->
+                            <img src="Assets/elite.jpg" alt="InternsElite Logo">
                         </div>
                         <div class="company-info">
-                            <h3>Innovate Tech Solutions</h3>
+                            <h3>InternsElite Pvt.Ltd</h3>
                             <div class="work-period">Jan 2023 - Present</div>
                         </div>
                     </div>
-                    <div class="work-role">Frontend Developer</div>
-                    <p>Developed responsive web applications using React and modern JavaScript. Collaborated with UX designers to implement pixel-perfect interfaces.</p>
+                    <div class="work-role">Frontend Developer Intern</div>
+                    <p>During my Web Developer Internship, I had the incredible opportunity to immerse myself in both front-end and back-end development, working alongside experienced professionals on real-world projects. </p>
                     <div class="responsibilities">
                         <h4>Key Responsibilities:</h4>
                         <ul>
-                            <li>Developed and maintained responsive web applications</li>
-                            <li>Implemented UI/UX designs with pixel-perfect accuracy</li>
-                            <li>Optimized applications for maximum speed and scalability</li>
-                            <li>Collaborated with backend developers to integrate APIs</li>
+                            <li>Built responsive and user-friendly websites using modern web technologies.</li>
+                            <li>Gained hands-on experience with HTML, CSS, JavaScript, and React.</li>
+                            <li>Worked with databases, APIs, Node.js, and PHP to develop dynamic applications.</li>
+                            <li>Participated in code reviews and debugging to maintain clean, efficient code.</li>
+                            <li>Focused on performance optimization for smooth and fast user experiences.</li>
                         </ul>
                     </div>
                 </div>
