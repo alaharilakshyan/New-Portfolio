@@ -1,6 +1,6 @@
 # 🚀 Portfolio Project: Modern Developer Portfolio
 
-[!Image](https://github.com/alaharilakshyan/New-Portfolio/blob/main/Frontend/Assets/Screenshot%202025-06-27%20004647.png)
+![Portfolio Screenshot](https://github.com/alaharilakshyan/New-Portfolio/blob/main/Frontend/Assets/Screenshot%202025-06-27%20004647.png) 
 
 Welcome to my modern developer portfolio! This responsive website showcases my skills, projects, and professional journey with a sleek design and smooth animations.
 
@@ -64,6 +64,7 @@ New-Portfolio/
 ├── README.md        # You are here! 😊
 └── vite.config.js   # Vite configuration
 ```
+
 
 ## 📝 Customization Guide
 
