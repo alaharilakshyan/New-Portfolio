@@ -1,6 +1,6 @@
 # 🚀 Portfolio Project: Modern Developer Portfolio
 
-![Portfolio Screenshot](![image](https://github.com/user-attachments/assets/2c981770-6296-45c5-be27-e4fe264ea6fc)
+![Portfolio Screenshot](![image](img src="Frontend/Assets/Screenshot 2025-06-27 004647.png")
 ) *Replace with actual screenshot*
 
 Welcome to my modern developer portfolio! This responsive website showcases my skills, projects, and professional journey with a sleek design and smooth animations.
