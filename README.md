@@ -1,6 +1,6 @@
 # 🚀 Portfolio Project: Modern Developer Portfolio
 
-(https://github.com/alaharilakshyan/New-Portfolio/blob/main/Frontend/Assets/Screenshot%202025-06-27%20004647.png)
+[!Image](https://github.com/alaharilakshyan/New-Portfolio/blob/main/Frontend/Assets/Screenshot%202025-06-27%20004647.png)
 
 Welcome to my modern developer portfolio! This responsive website showcases my skills, projects, and professional journey with a sleek design and smooth animations.
 
