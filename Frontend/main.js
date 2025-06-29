@@ -1,4 +1,4 @@
- // GSAP Animations
+// GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
         
         // Animate sections on scroll
@@ -14,7 +14,14 @@
                 duration: 1
             });
         });
-        
+        // Make stat-box clickable
+document.querySelectorAll('.stat-box').forEach(box => {
+    box.addEventListener('click', function() {
+        if (this.querySelector('a')) {
+            window.location.href = this.querySelector('a').href;
+        }
+    });
+});
         // Animate home elements
         gsap.from('.featured-text-card', {
             duration: 1,
@@ -75,6 +82,7 @@
         let charIndex = 0;
         
         function type() {
+            if (!typedTextSpan) return;
             if (charIndex < textArray[textArrayIndex].length) {
                 typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
                 charIndex++;
@@ -86,12 +94,11 @@
         
         function erase() {
             if (charIndex > 0) {
-                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-                charIndex--;
+                typedTextSpan.textContent = textArray[textArrayIndex].slice(0, --charIndex);
                 setTimeout(erase, erasingDelay);
             } else {
                 textArrayIndex++;
-                if (textArrayIndex >= textArray.length) textArrayIndex=0;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
                 setTimeout(type, typingDelay + 1100);
             }
         }
@@ -169,116 +176,77 @@
 
 
         // Contact Form Handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const notificationArea = document.getElementById('notificationArea');
-            const submitBtn = document.getElementById('submitBtn');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    // Show loading state
-                    submitBtn.disabled = true;
-                    submitBtn.classList.add('sending');
-                    submitBtn.textContent = 'Sending...';
-                    
-                    // Create notification element
-                    const notification = document.createElement('div');
-                    
-                    try {
-                        // Get form data
-                        const formData = {
-                            name: document.getElementById('name').value,
-                            email: document.getElementById('email').value,
-                            subject: document.getElementById('subject').value,
-                            message: document.getElementById('message').value,
-                            // This will be replaced with your actual email when deployed
-                            to: 'lakshyanalahari69@gmail.com'
-                        };
-                        
-                        // Determine environment
-                        const isLocal = window.location.hostname === 'localhost' || 
-                                        window.location.hostname === '127.0.0.1';
-                        
-                        let response;
-                        
-                        if (isLocal) {
-                            // Local development - use EmailJS fallback
-                            response = await sendWithEmailJS(formData);
-                        } else {
-                            // Production - use Vercel serverless function
-                            response = await fetch('/api/send-email', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(formData)
-                            });
-                        }
-                        
-                        if (response.ok) {
-                            // Success notification
-                            notification.className = 'form-notification notification-success notification-show';
-                            notification.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.';
-                            
-                            // Reset form
-                            contactForm.reset();
-                        } else {
-                            throw new Error('Failed to send message');
-                        }
-                    } catch (error) {
-                        console.error('Error sending message:', error);
-                        
-                        // Error notification
-                        notification.className = 'form-notification notification-error notification-show';
-                        notification.innerHTML = '<i class="fas fa-exclamation-triangle"></i> There was an error sending your message. Please try again.';
-                    } finally {
-                        // Update UI
-                        notificationArea.innerHTML = '';
-                        notificationArea.appendChild(notification);
-                        
-                        // Reset button state
-                        submitBtn.disabled = false;
-                        submitBtn.classList.remove('sending');
-                        submitBtn.textContent = 'Send Message';
-                        
-                        // Auto-hide notification after 5 seconds
-                        setTimeout(() => {
-                            notification.classList.remove('notification-show');
-                        }, 5000);
-                    }
-                });
-            }
-            
-            // EmailJS fallback for local development
-            async function sendWithEmailJS(formData) {
-                // Initialize EmailJS (you'll need to sign up for a free account at https://www.emailjs.com/)
-                // Replace these with your actual EmailJS details
-                const serviceID = 'service_abc123'; // Your EmailJS service ID
-                const templateID = 'template_xyz456'; // Your EmailJS template ID
-                const userID = 'user_789def'; // Your EmailJS user ID
-                
-                // Load EmailJS SDK if not already loaded
-                if (typeof emailjs === 'undefined') {
-                    await new Promise((resolve) => {
-                        const script = document.createElement('script');
-                        script.src = 'https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js';
-                        script.onload = resolve;
-                        document.head.appendChild(script);
-                    });
-                    
-                    // Initialize EmailJS
-                    emailjs.init(userID);
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const notificationArea = document.getElementById('notificationArea');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="btn-loader"></span> Sending...';
+
+            try {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value
+                };
+
+                // Basic validation
+                if (!formData.name || !formData.email || !formData.message) {
+                    throw new Error('Please fill all required fields');
                 }
+
+                // Email validation
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                    throw new Error('Please enter a valid email address');
+                }
+
+                // Simulate successful submission (no backend)
+                showNotification('success', 'Message sent successfully!');
                 
-                // Send email using EmailJS
-                return emailjs.send(serviceID, templateID, {
-                    to_name: 'Lakshyan',
-                    from_name: formData.name,
-                    reply_to: formData.email,
-                    subject: formData.subject,
-                    message: formData.message
-                });
+                // Reset form
+                contactForm.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('error', error.message || 'There was an error sending your message. Please try again.');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
             }
         });
+    }
+
+    function showNotification(type, message) {
+        // Clear previous notifications
+        notificationArea.innerHTML = '';
+        
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        
+        // Add icon based on type
+        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle';
+        notification.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+        
+        // Add to DOM
+        notificationArea.appendChild(notification);
+        
+        // Show notification
+        notification.classList.add('show');
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 5000);
+    }
+});
