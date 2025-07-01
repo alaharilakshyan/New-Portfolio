@@ -1726,3 +1726,36 @@ footer {
         font-size: 0.95rem;
     }
 }
+
+/* Add this to your style.css for the button styling */
+.back-home-btn {
+    position: fixed;
+    top: 32px;
+    left: 32px;
+    z-index: 1200;
+    background: #00b894;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 22px 12px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.back-home-btn:hover {
+    background: #019170;
+    color: #fff;
+    text-decoration: none;
+}
+@media (max-width: 600px) {
+    .back-home-btn {
+        top: 12px;
+        left: 12px;
+        padding: 10px 16px 10px 12px;
+        font-size: 1rem;
+    }
+}
