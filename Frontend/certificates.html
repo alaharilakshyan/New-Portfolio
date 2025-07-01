@@ -198,5 +198,33 @@
             window.addEventListener('scroll', animateOnScroll);
         });
     </script>
+    <script>
+        // Enable navigation for the bottom nav bar
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('nav .nav-item').forEach(function (navItem) {
+                navItem.addEventListener('click', function (e) {
+                    // Allow normal navigation for anchor tags
+                    // If you want smooth scroll for # links on index.html, you can add logic here
+                    // For now, just redirect to the href
+                    window.location.href = navItem.getAttribute('href');
+                });
+            });
+
+            // Active state for nav bar based on current page/section
+            const currentPage = location.pathname.split('/').pop();
+            const currentHash = location.hash;
+            document.querySelectorAll('nav .nav-item').forEach(function (navItem) {
+                const href = navItem.getAttribute('href');
+                if (
+                    (currentPage === 'certificates.html' && (href === 'index.html' || href === 'index.html#home')) ||
+                    (currentPage === 'index.html' && (href === 'index.html' + currentHash))
+                ) {
+                    navItem.classList.add('active');
+                } else {
+                    navItem.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

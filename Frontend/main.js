@@ -163,4 +163,25 @@ document.addEventListener('DOMContentLoaded', () => {
     setupNavigation();
     setupStatBoxes();
     setupContactForm();
+
+    // Animate section header
+    const header = document.querySelector('.section-header');
+    if (header) {
+        header.style.opacity = '0';
+        header.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            header.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            header.style.opacity = '1';
+            header.style.transform = 'translateY(0)';
+        }, 300);
+    }
+
+    // Animate work items with staggered delay
+    const workItems = document.querySelectorAll('.work-timeline-item');
+    workItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            item.classList.add('animate');
+        }, 300 + (index * 200));
+    });
 });
